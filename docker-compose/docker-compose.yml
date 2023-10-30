@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  trino-coordinator:
+    image: andrebaceti/trino-coordinator:430-1.1
+    hostname: trino-coordinator
+    ports:
+      - '8050:8080'
+    volumes:
+      - ./catalog.zip:/catalog/catalog.zip
+
+  trino-worker:
+    image: docker.io/andrebaceti/trino-worker:430-1.1
+    volumes:
+      - ./catalog.zip:/catalog/catalog.zip
+    deploy:
+      replicas: 3

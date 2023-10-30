@@ -1,5 +1,4 @@
 # Trino Pumpwood
-
 This repository creates images to facilitate deploy of trino on docker-compose
 and K8s cluster. It is based on official
 <a href="https://hub.docker.com/r/trinodb/trino"> Trino docker image </a>
@@ -34,6 +33,9 @@ single file as secret to container.
 ## SHARED_SECRET as Env variable
 SHARED_SECRET between coordinator and worker can be passed as environment
 variable facilitating deploy.
+
+## Automatically create node.id for worker node
+Create a UUID for each worker node at container startup.
 
 ## WARNING: Do not expose Trino outside of cluster!
 It was not configured secrets for authentication so it is possible to query
